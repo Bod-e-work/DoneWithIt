@@ -2,7 +2,7 @@ import {registerRootComponent} from 'expo';
 
 
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView , StatusBar, Platform, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView , Platform, Dimensions } from 'react-native';
 import { useDimensions } from '@react-native-community/hooks';
 
 import WelcomeScreen from './App/Screens/WelcomeScreen';
