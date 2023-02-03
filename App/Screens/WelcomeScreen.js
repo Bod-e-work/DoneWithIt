@@ -1,6 +1,5 @@
 import React from 'react';
 import { ImageBackground , StyleSheet, View, Image, Text, Button} from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 import AppButton from '../components/AppButton';
 import colors from '../config/colors';

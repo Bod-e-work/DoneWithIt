@@ -7,19 +7,16 @@ import { useDimensions } from '@react-native-community/hooks';
 
 import WelcomeScreen from './App/Screens/WelcomeScreen';
 import ViewImageScreen from './App/Screens/ViewImageScreen';
-import AppText from './App/components/AppText/AppText';
-import CardComponent from './App/Screens/CardComponent';
+import AppText from './App/components/AppText';
+import Card from './App/components/Card';
+import MessagesScreen from './App/Screens/MessagesScreen';
 
 export default function App() {
 
   // console.log(Dimensions.get("screen"));
 
   return (
-    <View>
-      <WelcomeScreen />,
-      <ViewImageScreen />,
-      <CardComponent />
-    </View>
+      <MessagesScreen />
   );
 }
 

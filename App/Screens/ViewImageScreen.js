@@ -8,10 +8,8 @@ import colors from '../config/colors';
 function ViewImageScreen(props) {
     return (
         <View style={styles.container}>
-            {/* <View style={styles.closeIcon}></View> */}
-            <AntDesign name="close" size={24} color="black" />
-            {/* <View style={styles.deleteIcon}></View> */}
-            <MaterialCommunityIcons name="trash-can-outline" size={24} color="black" />
+            <View style={styles.closeIcon}><AntDesign name="close" size={35} color="white" /></View>
+            <View style={styles.deleteIcon}><MaterialCommunityIcons name="trash-can-outline" size={35} color="white" /></View>
             <Image resizeMode="contain" style={styles.images} source={require("../assets/chair.jpg")}>
             </Image>
         </View>
@@ -20,9 +18,6 @@ function ViewImageScreen(props) {
 
 const styles = StyleSheet.create({
     closeIcon: {
-        width: 50,
-        height: 50,
-        backgroundColor: colors.primary,
         position: 'absolute',
         top: 40,
         left:30,
@@ -32,9 +27,6 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     deleteIcon: {
-        width: 50,
-        height: 50,
-        backgroundColor: colors.secondary,
         position: 'absolute',
         top: 40,
         left:30,
