@@ -1,8 +1,8 @@
-import React, { Children } from 'react';
+import React from 'react';
+import { Children } from 'react';
 import { Text, StyleSheet, Platform } from 'react-native';
 
-
-function AppText({Children, style}) {
+function AppText({Children}) {
     return (
         <Text style={styles.text}>{Children}</Text>
     );
