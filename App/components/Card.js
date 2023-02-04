@@ -1,16 +1,17 @@
 import React from 'react';
-import { Image, Text, View,StyleSheet } from 'react-native';
+import { Image, Text, View, StyleSheet } from 'react-native';
 
-import colors from '../config/colors';
-import AppText from './App/components/AppText/AppText';
+import Colors from '../config/Colors';
 
-function CardComponent({title, subTitle, image}) {
+function Card() {
     return (
-        <View style={styles.card}>
-            <Image style={styles.image} source={require('../assets/jacket.jpg')}></Image>
-            <View style={styles.detailsContainer}>
-                <AppText style={styles.title}>Red jacket for sale</AppText>
-                <AppText style={ styles.subTitle}>$100</AppText>
+        <View style={styles.background}>
+            <View style={styles.card}>
+                <Image style={styles.image} source={require('../assets/jacket.jpg')}></Image>
+                <View style={styles.detailsContainer}>
+                    <Text style={styles.title}>Red jacket for sale</Text>
+                    <Text style={ styles.subTitle}>$100</Text>
+                </View>
             </View>
         </View>
     );
@@ -18,9 +19,14 @@ function CardComponent({title, subTitle, image}) {
 
 
 const styles = StyleSheet.create({
+    background: {
+        backgroundColor: Colors.light,
+        padding: 20,
+        paddingTop: 100,
+    },
     card: {
         borderRadius: 15,
-        backgroundColor: colors.white,
+        backgroundColor: Colors.white,
         marginBottom: 20,
         overflow: 'hidden',
     },
@@ -32,7 +38,7 @@ const styles = StyleSheet.create({
         height: 200,
     },
     subTitle: {
-        color: colors.secondary,
+        color: Colors.secondary,
         fontWeight: 'bold',
     },
     title: {
@@ -40,4 +46,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default CardComponent;
+export default Card;

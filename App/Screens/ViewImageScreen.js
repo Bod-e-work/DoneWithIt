@@ -3,7 +3,7 @@ import { Image, StyleSheet, View } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import colors from '../config/colors';
+import Colors from '../config/Colors';
 
 function ViewImageScreen(props) {
     return (
@@ -23,13 +23,13 @@ const styles = StyleSheet.create({
         left:30,
     },
     container: {
-        backgroundColor: colors.black,
+        backgroundColor: Colors.black,
         flex: 1,
     },
     deleteIcon: {
         position: 'absolute',
         top: 40,
-        left:30,
+        right:30,
     },
     images: {
         width: "100%",

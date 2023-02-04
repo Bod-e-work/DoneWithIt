@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, StyleSheet, Image, TouchableHighlight, onPress, renderRightActions } from 'react-native';
+import { View, StyleSheet, Image, TouchableHighlight, onPress, renderRightActions, Text } from 'react-native';
 import { Swipeable } from 'react-native-gesture-handler';
 
 import AppText from './AppText';
-import colors from '../config/colors';
+import colors from '../config/Colors';
 
 function ListItem({title, subTitle, image}) {
     return (
@@ -14,8 +14,8 @@ function ListItem({title, subTitle, image}) {
                 <View style={styles.container}>
                     <Image style={styles.image} source={image}/>
                     <View>
-                        <AppText style={styles.title}>{title}</AppText>
-                        <AppText style={styles.subTitle}>{subTitle}</AppText>
+                        <Text style={styles.title}>{title}</Text>
+                        <Text style={styles.subTitle}>{subTitle}</Text>
                     </View>
                 </View>
             </TouchableHighlight>
