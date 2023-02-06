@@ -5,6 +5,7 @@ import { FlatList } from 'react-native';
 import Screen from '../components/Screen';
 import ListItem from '../components/ListItem';
 import ListItemDeleteAction from '../components/ListItemDeleteAction';
+import ListIemSeparator from '../components/ListItemSeparator';
 
 function ListingsScreen(props) {
     return (

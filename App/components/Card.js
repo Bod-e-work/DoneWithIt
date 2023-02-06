@@ -2,6 +2,8 @@ import React from 'react';
 import { Image, Text, View, StyleSheet } from 'react-native';
 
 import Colors from '../config/Colors';
+import AppText from './AppText';
+
 
 function Card() {
     return (
@@ -38,10 +40,14 @@ const styles = StyleSheet.create({
         height: 200,
     },
     subTitle: {
+        fontSize: Platform.OS === 'android' ?  18 : 20,
+        fontFamily: Platform.OS === 'android' ? "Roboto" : "Avenir",
         color: Colors.secondary,
         fontWeight: 'bold',
     },
     title: {
+        fontSize: Platform.OS === 'android' ?  18 : 20,
+        fontFamily: Platform.OS === 'android' ? "Roboto" : "Avenir",
         marginBottom: 7,
     }
 })

@@ -1,11 +1,11 @@
-import React from 'react';
+
 import Constants  from 'expo-constants';
 import { SafeAreaView, StyleSheet } from 'react-native';
 
-function Screen({Children}) {
+function Screen({children}) {
     return (
         <SafeAreaView style={styles.screen}>
-            {Children}
+            {children}
         </SafeAreaView>
     );
 }

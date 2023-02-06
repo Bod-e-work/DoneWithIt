@@ -1,10 +1,10 @@
 import React from 'react';
-import { Children } from 'react';
 import { Text, StyleSheet, Platform } from 'react-native';
+import Constants  from 'expo-constants';
 
-function AppText({Children}) {
+function AppText({children}) {
     return (
-        <Text style={styles.text}>{Children}</Text>
+        <Text style={styles.text}>{children}</Text>
     );
 }
 
