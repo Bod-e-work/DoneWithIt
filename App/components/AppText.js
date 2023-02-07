@@ -1,8 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
-import Constants  from 'expo-constants';
 
-import defaultStyles from '../config/styles'
+import defaultStyles from '../config/DefaultStyles'
 
 function AppText({children}) {
     return (

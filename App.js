@@ -22,7 +22,7 @@ export default function App() {
  
   return (
       <Screen>
-        <AppPicker placeholder={} />
+        <AppPicker />
       </Screen>
   );
 }
