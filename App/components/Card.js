@@ -5,7 +5,7 @@ import Colors from '../config/Colors';
 import AppText from './AppText';
 
 
-function Card() {
+function Card({image, title, subTitle}) {
     return (
         <View style={styles.background}>
             <View style={styles.card}>

@@ -28,7 +28,7 @@ import { FlatList } from 'react-native-gesture-handler';
 
 function AccountScreen(props) {
     return (
-        <Screen>
+        <Screen style={styles.screen}>
             <View style={styles.container}>
                 <ListItem 
                     title="Shawn Noel"
@@ -53,6 +53,16 @@ function AccountScreen(props) {
                             />}
                     />
             </View>
+            <ListItem 
+                title="Log Out"
+                IconComponent={
+                    <Icons 
+                        name="logout"
+                        backgroundColor='#ffe66d'
+                    />
+                }
+            />
+
         </Screen>
     );
 }
@@ -61,5 +71,8 @@ const styles = StyleSheet.create({
     container: {
         marginVertical: 20,
     },
+    screen: {
+        backgroundColor: Colors.light
+    }
 })
 export default AccountScreen;
