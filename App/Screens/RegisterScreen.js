@@ -6,23 +6,29 @@ import {AppForm, AppFormField, SubmitButton, } from "../components/forms"
 import Screen from '../components/Screen';
 
 const validationSchema = Yup.object().shape({
-    email: Yup.string().required().email().label('Email'),
+    name: Yup.string().required().label('Name'), 
+    email: Yup.string().required().email().label('Email'), 
     password: Yup.string().required().min(4).label('Password')
 })
 
-function LoginScreen(props) {
-
+function RegisterScreen(props) {
     return (
         <Screen style={styles.container}>
-            <Image 
-                style={styles.logo}
-                source={require("../assets/logo-red.png")} 
-            />
+            
             <AppForm
-                initialValues={{ email: '', password: '' }}
+                initialValues={{ name: '', email: '', password: '' }}
                 onSubmit={values => console.log(values)}
                 validationSchema={validationSchema}
                 >
+                    <AppFormField
+                        autoCapotalize="words"
+                        autoCorrect={false}
+                        icon="person"
+                        keyboadType="default"
+                        name='name'
+                        placehoider="Name"
+                        textContentType="name"
+                    />
                     <AppFormField
                         autoCapotalize="none"
                         autoCorrect={false}
@@ -41,7 +47,7 @@ function LoginScreen(props) {
                         secureTextEntry
                         textContentType="password"
                     />
-                    <SubmitButton title="Login"/>
+                    <SubmitButton title="Register"/>
             </AppForm>
             
         </Screen>
@@ -52,14 +58,7 @@ function LoginScreen(props) {
 const styles = StyleSheet.create({
     container: {
         padding: 10,
-    },
-    logo: {
-        width: 80,
-        height: 80,
-        alignSelf: 'center',
-        marginTop: 50,
-        marginBottom: 20,
     }
 })
 
-export default LoginScreen;
+export default RegisterScreen;

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Image, TouchableHighlight, Text, Platform } from 'react-native';
 import { GestureHandlerRootView, Swipeable } from 'react-native-gesture-handler';
 
-import Colors from '../config/Colors';
+import Colors from '../../config/Colors';
 
 function ListItem({title, subTitle, image, IconComponent, onPress, renderRightActions}) {
     return (

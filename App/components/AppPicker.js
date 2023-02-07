@@ -59,6 +59,10 @@ const styles = StyleSheet.create({
     icon: {
         marginRight: 10,
     },
+    placeholder: {
+        color: Colors.medium,
+        flex: 1,
+    },
     text: {
         flex: 1,
     },
