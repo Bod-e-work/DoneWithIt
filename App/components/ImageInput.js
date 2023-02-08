@@ -1,8 +1,12 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import { Button, StyleSheet, View } from 'react-native';
 import * as ImagePicker from 'expo-image-picker'
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-function ImageInput(props) {
+
+import colors from '../config/colors';
+
+function ImageInput({ ImageUri }) {
     const [imageUri, setImageUri] = useState();
 
     const requestPermission = async () => {
@@ -28,17 +32,27 @@ function ImageInput(props) {
 
 
     return (
-        <Screen>
+        <View style={styles.container}>
         <Button title="SelecT Image" onPress={selectImage} />
-        <Image source={{uri: imageUri}} style={styles.image}/>
-      </Screen>
+        {!imageUri && <MaterialCommunityIcons name="camera" color={colors.medium} size={40} />}
+        {imageUri && <Image source={{uri: imageUri}} style={styles.image}/>}
+      </View>
     );
 }
 
 const styles = StyleSheet.create({
+    container: {
+        alignItems: 'center',
+        backgroundColor: colors.light,
+        borderRadius: 15,
+        height: 100,
+        justifyContent: 'center',
+        overflow: 'hidden',
+        width: 100,
+    },
     image: {
-        width: 200, 
-        height:200,
+        width: '100%', 
+        height: '100%',
     }
 })
 
