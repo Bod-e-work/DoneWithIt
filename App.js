@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import * as ImagePicker from 'expo-image-picker'
+import * as Permissions from 'expo-permissions'
+import { WebView } from 'react-native-webview';
 
-
-import { StyleSheet, Text, View, SafeAreaView , Platform, Dimensions, TextInput } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView , Platform, Dimensions, TextInput, Button, Image } from 'react-native';
 
 import WelcomeScreen from './App/Screens/WelcomeScreen';
 import ViewImageScreen from './App/Screens/ViewImageScreen';
@@ -24,9 +26,11 @@ import PickerItem from './App/components/PickerItem';
 
 export default function App() {
 
- 
-  return (
-      <WelcomeScreen />
+  (
+    <WebView
+    style={styles.container}
+    source={{ uri: 'https://expo.dev' }}
+  />
   );
 }
 
