@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 
+
 import Screen from "../components/Screen";
 import {
   ListItem,
@@ -11,14 +12,14 @@ import {
 const initialMessages = [
   {
     id: 1,
-    title: "T1",
-    description: "D1",
+    title: "Shawn Noek",
+    description: "Hey! is this item still available?",
     image: require("../assets/faceshot.png"),
   },
   {
     id: 2,
-    title: "T2",
-    description: "D2",
+    title: "Mosh Hamedani",
+    description: "Im iterested in this item. When will you be able to post it?",
     image: require("../assets/mosh.jpg"),
   },
 ];
