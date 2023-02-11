@@ -1,30 +1,39 @@
-import React from "react";
-import { StyleSheet } from "react-native";
 import * as Yup from "yup";
-import CategoryPickerItem from "../components/CategoryPickerItem";
+import React, { useState, useEffect } from 'react';
+import { Platform, Text, View, StyleSheet } from 'react-native';
+import * as Location from 'expo-location';
 
-import {
-  AppForm as Form,
-  AppFormField as FormField,
-  AppFormPicker as Picker,
-  SubmitButton,
-} from "../components/forms";
+
+import CategoryPickerItem from "../components/CategoryPickerItem";
+import {Form, FormField, FormPicker as Picker, SubmitButton, } from "../components/forms";
+import FormImagePicker from "../components/forms/FormImagePicker";
 import Screen from "../components/Screen";
+import useLocation from "../components/hooks/useLocation";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
   price: Yup.number().required().min(1).max(10000).label("Price"),
   description: Yup.string().label("Description"),
   category: Yup.object().required().nullable().label("Category"),
+  images: Yup.array().min(1, "Please select at least one image"),
 });
 
 const categories = [
-  { label: "Furniture", value: 1, backgroudColor: 'red', icon: 'apps' },
-  { label: "Clothing", value: 2, backgroudColor: 'green', icon: 'email'  },
-  { label: "Camera", value: 3, backgroudColor: 'blue', icon: 'lock' },
+  { label: "Furniture", value: 1, backgroundColor: '#6a4c93', icon: 'apps' },
+  { label: "Clothing", value: 2, backgroundColor: '#8ac926', icon: 'email'  },
+  { label: "Camera", value: 3, backgroundColor: '#48cae4', icon: 'lock' },
+  { label: "Cushion", value: 4, backgroundColor: '#e76f51', icon: 'square' },
+  { label: "Balls", value: 5, backgroundColor: '#219ebc', icon: 'circle'  },
+  { label: "Bags", value: 6, backgroundColor: '#fb5607', icon: 'triangle' },
+  { label: "Toys", value: 7, backgroundColor: '#ffba08', icon: 'car' },
+  { label: "Phones", value: 8, backgroundColor: '#dc2f02', icon: 'phone'  },
+  { label: "Books", value: 9, backgroundColor: '#ff006e', icon: 'book' },
 ];
 
 function ListingEditScreen() {
+  const location = useLocation;
+
+
   return (
     <Screen style={styles.container}>
       <Form
@@ -33,10 +42,12 @@ function ListingEditScreen() {
           price: "",
           description: "",
           category: null,
+          images: []
         }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values) => console.log(location)}
         validationSchema={validationSchema}
       >
+        <FormImagePicker name="images"/>
         <FormField maxLength={255} name="title" placeholder="Title" />
         <FormField
           keyboardType="numeric"
