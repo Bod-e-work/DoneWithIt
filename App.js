@@ -26,6 +26,8 @@ import ListingEditScreen from './App/Screens/ListingEditScreen';
 import Icon from './App/components/Icons';
 import PickerItem from './App/components/PickerItem';
 import AuthNavigator from './App/navigation/AuthNavigator';
+import ImageInput from './App/components/ImageInput';
+import ImageInputList from './App/components/ImageInputList';
 
 
 // const Tweets = ({ navigation }) => (
@@ -66,8 +68,26 @@ import AuthNavigator from './App/navigation/AuthNavigator';
 
 
 export default function App() {
+
+  const [imageUris, setImageUris] = useState ([]);
+
+console.log(imageUris)
+
+const handleAdd = (uri) => {
+  setImageUris([...imageUris, uri]);
+}
+
+const handleRemove = (uri) => {
+  setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
+}
+
   return (
-  <></>
+    <Screen>
+      <ImageInputList imageUris={imageUris}
+                  onAddImage={handleAdd}
+                  onRemoveImage={handleRemove} />
+
+    </Screen>
   );
 };
 
