@@ -1,11 +1,10 @@
 import * as Yup from "yup";
-import React, { useState, useEffect } from 'react';
-import { Platform, Text, View, StyleSheet } from 'react-native';
-import * as Location from 'expo-location';
+import React from 'react';
+import { StyleSheet } from 'react-native';
 
 
 import CategoryPickerItem from "../components/CategoryPickerItem";
-import {Form, FormField, FormPicker as Picker, SubmitButton, } from "../components/forms";
+import {AppForm, AppFormField, AppFormPicker, SubmitButton, } from "../components/forms";
 import FormImagePicker from "../components/forms/FormImagePicker";
 import Screen from "../components/Screen";
 import useLocation from "../components/hooks/useLocation";
@@ -31,12 +30,14 @@ const categories = [
 ];
 
 function ListingEditScreen() {
-  const location = useLocation;
+
+const location = useLocation();
+
 
 
   return (
     <Screen style={styles.container}>
-      <Form
+      <AppForm
         initialValues={{
           title: "",
           price: "",
@@ -48,15 +49,15 @@ function ListingEditScreen() {
         validationSchema={validationSchema}
       >
         <FormImagePicker name="images"/>
-        <FormField maxLength={255} name="title" placeholder="Title" />
-        <FormField
+        <AppFormField maxLength={255} name="title" placeholder="Title" />
+        <AppFormField
           keyboardType="numeric"
           maxLength={8}
           name="price"
           placeholder="Price"
           width={120}
         />
-        <Picker 
+        <AppFormPicker
           items={categories} 
           name="category" 
           numberOfColumns={3}
@@ -64,7 +65,7 @@ function ListingEditScreen() {
           placeholder="Category" 
           width="50%"
         />
-        <FormField
+        <AppFormField
           maxLength={255}
           multiline
           name="description"
@@ -72,7 +73,7 @@ function ListingEditScreen() {
           placeholder="Description"
         />
         <SubmitButton title="Post" />
-      </Form>
+      </AppForm>
     </Screen>
   );
 }

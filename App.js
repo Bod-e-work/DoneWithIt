@@ -17,7 +17,7 @@ import AccountScreen from './App/Screens/AccountScreen';
 import Icons from './App/components/Icons';
 import Screen from './App/components/Screen';
 import AppTextInput from './App/components/TextInput';
-import AppPicker from './App/components/Picker';
+import AppPicker from './App/components/AppPicker';
 import LoginScreen from './App/Screens/LoginScreen';
 import AppButton from './App/components/AppButton';
 import { AppForm, AppFormField } from './App/components/forms';
@@ -83,9 +83,9 @@ const handleRemove = (uri) => {
 
   return (
     <Screen>
-      <ImageInputList imageUris={imageUris}
+      {/* <ImageInputList imageUris={imageUris}
                   onAddImage={handleAdd}
-                  onRemoveImage={handleRemove} />
+                  onRemoveImage={handleRemove} /> */}
 
     </Screen>
   );
