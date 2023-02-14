@@ -17,16 +17,5 @@ const AuthNavigator = () => (
     </Stack.Navigator>
 )
 
-// const Tab = createBottomTabNavigator();
-// const TabNavigator = () => (
-//     <Tab.Navigator 
-//          screenOptions={{
-//             headerStyle : {backgroundColor: "tomato"}
-//          }}>
-//         <Tab.Screen name=" Welcome" component={createStackNavigator} />
-//         <Tab.Screen name=" Login" component={LoginScreenNavigator} />
-//         <Tab.Screen name=" Register" component={RegisterScreenNavigator} />
-//     </Tab.Navigator>
-// )
 
 export default AuthNavigator;

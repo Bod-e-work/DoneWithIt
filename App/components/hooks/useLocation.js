@@ -7,7 +7,7 @@ const useLocation = () => {
   
   const getLocation = async () => {
   try {
-      const { granted } = Location.requestForegroundPermissionsAsync();
+      const { granted } = await Location.requestForegroundPermissionsAsync();
       if (!granted) return; 
       const { coords: { latitude, longitude} } = await Location.getLastKnownPositionAsync();
     setLocation({ latitude, longitude})

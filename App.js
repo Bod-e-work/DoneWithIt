@@ -3,9 +3,11 @@ import * as ImagePicker from 'expo-image-picker'
 import * as Permissions from 'expo-permissions'
 import { WebView } from 'react-native-webview';
 import { StyleSheet, Text, View, SafeAreaView , Platform, Dimensions, TextInput, Button, Image } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
 
 import WelcomeScreen from './App/Screens/WelcomeScreen';
 import ViewImageScreen from './App/Screens/ViewImageScreen';
@@ -28,66 +30,82 @@ import PickerItem from './App/components/PickerItem';
 import AuthNavigator from './App/navigation/AuthNavigator';
 import ImageInput from './App/components/ImageInput';
 import ImageInputList from './App/components/ImageInputList';
+import NavigationTheme from './App/navigation/NavigationTheme';
+import AppNavigator from './App/navigation/AppNavigator';
+
+// const Link = () => {
+//   const navigation = useNavigation();
+
+//   return (
+//     <Button title="Click" 
+//     onPress={() => navigation.navigate('TweetDetails')} />
+//   );
+// };
+
+const Tweets = ({ navigation }) => (
+  <Screen>
+    <Text>Tweets</Text>
+    <Button 
+      title="View Tweet" 
+      onPress={() => navigation.navigate("TweetDetails")} />
+  </Screen>
+)
+
+const TweetDetails = () => (
+  <Screen>
+    <Text>TweetDetails</Text>
+  </Screen>
+)
+
+const Stack = createStackNavigator();
+const StackNavigator = () => {
+  <Stack.Navigator>
+    <Stack.Screen name="Tweets" component={StackNavigator} />
+    <Stack.Screen 
+    name="TweetDetails" 
+    component={Tweets} 
+    options={({ route }) => ({ tilte: route.params.id})}
+    />
+  </Stack.Navigator>
+}
+
+const Account = () => <Screen><Text>Account</Text></Screen>
 
 
-// const Tweets = ({ navigation }) => (
-//   <Screen>
-//     <Text>Tweets</Text>
-//     <Button 
-//       title="View Tweet" 
-//       onPress={() => navigation.navigate("TweetDetails")} />
-//   </Screen>
-// )
-
-// const TweetDetails = () => (
-//   <Screen>
-//     <Text>TweetDetails</Text>
-//   </Screen>
-// )
-
-// const Stack = createStackNavigator();
-// const StackNavigator = () => {
-//   <Stack.Navigator>
-//     <Stack.Screen name="Tweets" component={Tweets} />
-//     <Stack.Screen 
-//     name="TweetDetails" 
-//     component={Tweets} 
-//     options={({ route }) => ({ tilte: route.params.id})}
-//     />
-//   </Stack.Navigator>
-// }
-
-// const Account = () => <Screen><Text>Account</Text></Screen>
-
-// TabNavigator = () => (
-//   <Tab.Navigator>
-//     <Tab.Screen name="Feed" component={Tweets} /> 
-//     <Tab.Screen name="Account" component={Account} /> 
-//   </Tab.Navigator>
-// )
+const Tab = createBottomTabNavigator();
+const TabNavigator = () => {
+  <Tab.Navigator
+    screenOptions={{
+      tabBarActiveBackgroundColor: 'tomato',
+      tabBarActiveTintColor: 'white',
+      tabBarInactiveBackgroundColor: '#eee'
+    }}>
+     <Tab.Screen name="Feed" component={FeedNavigator} options={{
+      tabBarIcon: () => <MaterialCommunityIcons name='home' size={size} color:color />
+      }}/> 
+     <Tab.Screen name="Account" component={AccountNavigator} /> 
+  </Tab.Navigator>
+}
 
 
 export default function App() {
 
-  const [imageUris, setImageUris] = useState ([]);
+//   const [imageUris, setImageUris] = useState ([]);
 
-console.log(imageUris)
+// console.log(imageUris)
 
-const handleAdd = (uri) => {
-  setImageUris([...imageUris, uri]);
-}
+// const handleAdd = (uri) => {
+//   setImageUris([...imageUris, uri]);
+// }
 
-const handleRemove = (uri) => {
-  setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
-}
+// const handleRemove = (uri) => {
+//   setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
+// }
 
   return (
-    <Screen>
-      {/* <ImageInputList imageUris={imageUris}
-                  onAddImage={handleAdd}
-                  onRemoveImage={handleRemove} /> */}
-
-    </Screen>
+    <NavigationContainer theme={NavigationTheme}>
+      <AppNavigator />
+    </NavigationContainer>
   );
 };
 

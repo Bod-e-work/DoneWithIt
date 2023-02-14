@@ -34,7 +34,7 @@ import WelcomeScreen from './App/Screens/WelcomeScreen';
 export default function App() {
 
   (
-    <ListingEditScreen />
+    <WelcomeScreen />
   );
 }
 
