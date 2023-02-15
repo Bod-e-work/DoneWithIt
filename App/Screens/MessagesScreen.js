@@ -12,7 +12,7 @@ import {
 const initialMessages = [
   {
     id: 1,
-    title: "Shawn Noek",
+    title: "Shawn Noel",
     description: "Hey! is this item still available?",
     image: require("../assets/faceshot.png"),
   },
