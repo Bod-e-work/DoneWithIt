@@ -33,74 +33,9 @@ import ImageInputList from './App/components/ImageInputList';
 import NavigationTheme from './App/navigation/NavigationTheme';
 import AppNavigator from './App/navigation/AppNavigator';
 
-// const Link = () => {
-//   const navigation = useNavigation();
-
-//   return (
-//     <Button title="Click" 
-//     onPress={() => navigation.navigate('TweetDetails')} />
-//   );
-// };
-
-const Tweets = ({ navigation }) => (
-  <Screen>
-    <Text>Tweets</Text>
-    <Button 
-      title="View Tweet" 
-      onPress={() => navigation.navigate("TweetDetails")} />
-  </Screen>
-)
-
-const TweetDetails = () => (
-  <Screen>
-    <Text>TweetDetails</Text>
-  </Screen>
-)
-
-const Stack = createStackNavigator();
-const StackNavigator = () => {
-  <Stack.Navigator>
-    <Stack.Screen name="Tweets" component={StackNavigator} />
-    <Stack.Screen 
-    name="TweetDetails" 
-    component={Tweets} 
-    options={({ route }) => ({ tilte: route.params.id})}
-    />
-  </Stack.Navigator>
-}
-
-const Account = () => <Screen><Text>Account</Text></Screen>
-
-
-const Tab = createBottomTabNavigator();
-const TabNavigator = () => {
-  <Tab.Navigator
-    screenOptions={{
-      tabBarActiveBackgroundColor: 'tomato',
-      tabBarActiveTintColor: 'white',
-      tabBarInactiveBackgroundColor: '#eee'
-    }}>
-     <Tab.Screen name="Feed" component={FeedNavigator} options={{
-      tabBarIcon: () => <MaterialCommunityIcons name='home' size={size} color:color />
-      }}/> 
-     <Tab.Screen name="Account" component={AccountNavigator} /> 
-  </Tab.Navigator>
-}
 
 
 export default function App() {
-
-//   const [imageUris, setImageUris] = useState ([]);
-
-// console.log(imageUris)
-
-// const handleAdd = (uri) => {
-//   setImageUris([...imageUris, uri]);
-// }
-
-// const handleRemove = (uri) => {
-//   setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
-// }
 
   return (
     <NavigationContainer theme={NavigationTheme}>

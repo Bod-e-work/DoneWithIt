@@ -3,8 +3,8 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { StyleSheet, View } from 'react-native';
 
 import colors from '../config/colors';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import { TouchableOpacity } from 'react-native-web';
+import { TouchableWithoutFeedback } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
 function NewListingButton({ onPress }) {
     return (

@@ -5,6 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import AppButton from "../components/AppButton";
+import routes from "../navigation/routes";
 
 
 function WelcomeScreen({ navigation }) {
@@ -19,8 +20,8 @@ function WelcomeScreen({ navigation }) {
         <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
       <View style={styles.buttonsContainer}>
-        <AppButton title="Login" onPress={() => navigation.navigate("Login")}/>
-        <AppButton title="Register" color="secondary" onPress={() => navigation.navigate("Register")} />
+        <AppButton title={routes.LOGIN} onPress={() => navigation.navigate(routes.LOGIN)}/>
+        <AppButton title={routes.REGISTER} color="secondary" onPress={() => navigation.navigate(routes.REGISTER)} />
       </View>
     </ImageBackground>
   );

@@ -14,3 +14,5 @@ const AccountNavigator = () => (
         <Stack.Screen name="Messages" component={MessagesScreen} />
     </Stack.Navigator>
 )
+
+export default AccountNavigator;
