@@ -9,11 +9,11 @@ const addListing = (listing, onUploadProgress ) => {
     const data = new FormData();
     data.append('title', listing.title);
     data.append('price', listing.price);
-    data.append('categoryId', listing.categoy.value);
+    data.append('categoryId', listing.category.value);
     data.append('description', listing.description);
 
-    listing/ImageBase.forEach((image, index) => 
-    DataTransfer.append('images', {
+    listing.images.forEach((image, index) => 
+    data.append('images', {
         name: 'image' + index,
         type: 'image/jpeg',
         uri: image
@@ -25,7 +25,7 @@ const addListing = (listing, onUploadProgress ) => {
         );
 
     return client.post(endpoint, data,  {
-        onUploadProgress: progress => 
+        onUploadProgress: (progress) => 
             onUploadProgress(progress.loaded / progress.total),
     });
 };

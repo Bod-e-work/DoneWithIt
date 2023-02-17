@@ -46,7 +46,7 @@ const handleSubmit = async (listing, { resetForm }) => {
     );
 
    if (!result.ok) {
-    setUploadVisible(false);
+    setUploadVisible(false)
       return alert('Could not save the listing.');
     }
 
