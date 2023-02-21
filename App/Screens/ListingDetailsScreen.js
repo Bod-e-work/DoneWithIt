@@ -7,10 +7,11 @@ import colors from "../config/colors";
 
 function ListingDetailsScreen({ route }) {
 const listing = route.params;
+const img = listing.images[0].url;
 
   return (
     <View>
-      <Image style={styles.image} source={listing.image} />
+      <Image style={styles.image} source={{uri : img}} />
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>{listing.title}</AppText>
         <AppText style={styles.price}>{listing.price}</AppText>

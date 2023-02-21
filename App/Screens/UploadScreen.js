@@ -3,6 +3,7 @@ import { Modal, StyleSheet, View } from 'react-native';
 import * as Progress from 'react-native-progress';
 import colors from '../config/colors';
 import LottieView from 'lottie-react-native';
+import AppText from '../components/AppText';
 
 function UploadScreen({ onDone, progress = 0, visible = false }) {
     return (
