@@ -32,16 +32,38 @@ import ImageInput from './App/components/ImageInput';
 import ImageInputList from './App/components/ImageInputList';
 import NavigationTheme from './App/navigation/NavigationTheme';
 import AppNavigator from './App/navigation/AppNavigator';
+import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import OfflineNotice from './App/components/OfflineNotice';
 
 
 
 export default function App() {
+//   const demo = async () => {
+//     try {
+//       await AsyncStorage.setItem('person', JSON.stringify({ id: 1 }));
+//       const value = await AsyncStorage.getItem('person');
+//       const person = JSON.parse(value);
+//       console.log(person);
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   }
 
-  return (
+
+// demo();
+
+return (
+  // const netInfo =  useNetInfo();
+
+  // return netInfo.isInternetReachable ? <View></View> : <View></View>
+  <>
+    <OfflineNotice />
     <NavigationContainer theme={NavigationTheme}>
       <AppNavigator />
     </NavigationContainer>
-  );
+  </>
+)
 };
 
 
