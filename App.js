@@ -35,6 +35,7 @@ import AppNavigator from './App/navigation/AppNavigator';
 import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import OfflineNotice from './App/components/OfflineNotice';
+import AuthContext from './App/auth/context';
 
 
 
@@ -52,17 +53,15 @@ export default function App() {
 
 
 // demo();
+const [user, setUser] = useState();
 
 return (
-  // const netInfo =  useNetInfo();
-
-  // return netInfo.isInternetReachable ? <View></View> : <View></View>
-  <>
+  <AuthContext.Provider value={{ user, setUser}}>
     <OfflineNotice />
     <NavigationContainer theme={NavigationTheme}>
-      <AppNavigator />
+      {user ? <AppNavigator/> : <AuthNavigator />}
     </NavigationContainer>
-  </>
+  </AuthContext.Provider>
 )
 };
 
