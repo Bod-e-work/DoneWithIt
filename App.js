@@ -7,6 +7,8 @@ import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import jwtDecode from 'jwt-decode';
+
 
 
 import WelcomeScreen from './App/Screens/WelcomeScreen';
@@ -36,24 +38,21 @@ import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import OfflineNotice from './App/components/OfflineNotice';
 import AuthContext from './App/auth/context';
-
+import storage from './App/auth/storage';
 
 
 export default function App() {
-//   const demo = async () => {
-//     try {
-//       await AsyncStorage.setItem('person', JSON.stringify({ id: 1 }));
-//       const value = await AsyncStorage.getItem('person');
-//       const person = JSON.parse(value);
-//       console.log(person);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
-
-
-// demo();
 const [user, setUser] = useState();
+
+const restoreToken = async () => {
+  const token = await storage.getToken();
+  if (!token) return;
+  setUser(jwtDecode(token));
+}
+
+useEffect(() => {
+  restoreToken
+}, [])
 
 return (
   <AuthContext.Provider value={{ user, setUser}}>
