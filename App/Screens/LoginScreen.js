@@ -8,6 +8,7 @@ import Screen from "../components/Screen";
 import { ErrorMessage, AppForm, AppFormField, SubmitButton } from "../components/forms";
 import AuthContext from "../auth/context";
 import storage from "../auth/storage";
+import useAuth from "../auth/useAuth";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -15,16 +16,15 @@ const validationSchema = Yup.object().shape({
 });
 
 function LoginScreen(props) {
-  const authContext = useContext(AuthContext);
+  const { logIn } = useAuth;
   const [loginFailed, setLoginFailed] = useState(false);
 
 const handleSubmit = async ({ email, password }) => {
   const result = await auth.login(email, password)
   if(!result.ok) return setLoginFailed(true)
   setLoginFailed(false);
-  const user = jwtDecode(result.data)
-  authContext.setUser(user);
-  storage.storeToken(result.data);
+  logIn(result.data);
+  
 }
 
   return (
